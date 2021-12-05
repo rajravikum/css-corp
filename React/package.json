@@ -1,0 +1,41 @@
+{
+  "name": "css-corp",
+  "version": "0.0.1",
+  "description": "React Task",
+  "main": "index.js",
+  "scripts": {
+    "finalBuild": "webpack",
+    "start": "webpack serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajravikum/css-corp.git"
+  },
+  "keywords": [
+    "react",
+    "javascript",
+    "es6",
+    "redux",
+    "mobx",
+    "nodeJs"
+  ],
+  "author": "RajarajanRavikumar (Rajarajan.Ravikumar@csscorp.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rajravikum/css-corp/issues"
+  },
+  "homepage": "https://github.com/rajravikum/css-corp#readme",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "babel-loader": "^8.2.3",
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.16.4",
+    "react": "^17.0.2"
+  }
+}
