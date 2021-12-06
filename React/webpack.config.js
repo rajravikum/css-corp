@@ -1,29 +1,24 @@
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require("path")
 
 module.exports = {
-    entry: './src/index.js',
-    output: {
-        path: path.resolve(__dirname,"finalBuild"),
-        filename: 'finalbuild.js'
-    },
-    mode: 'production',
-    module: {
-        rules: [
-          {
-            test: /\.m?js$/,
-            exclude: /node_modules/,
-            use: {
-              loader: "babel-loader",
-              options: {
-                presets: ['@babel/preset-env']
-              }
-            }
-          }
-        ]
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'finalBuild'),
+    filename: 'finalbuild.js',
+  },
+  mode: 'production',
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: 'babel-loader',
       },
-      plugins: [new HtmlWebpackPlugin({
-          template: "./public/index.html",
-          filename: "index.html"
-      })]
-}
+    ],
+  },
+  plugins: [new HtmlWebpackPlugin({
+    template: './public/index.html',
+    filename: 'index.html',
+  })],
+};

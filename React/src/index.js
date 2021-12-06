@@ -1,7 +1,7 @@
-import {a} from './app'
+import { a } from './app';
 
-console.log("How are doing");
+console.log('How are You doing');
 
-console.log("Iam working in CSS-CORP");
+console.log('Iam working in CSS-CORP');
 
-console.log(app.a);
+console.log(a);
