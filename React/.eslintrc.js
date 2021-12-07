@@ -15,6 +15,7 @@ module.exports = {
     },
     ecmaVersion: 13,
     sourceType: 'module',
+    requireConfigFile: false,
   },
   plugins: [
     'react',

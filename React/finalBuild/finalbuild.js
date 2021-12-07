@@ -1,3 +1,1 @@
-(() => {
-  console.log('Greetings and call from the App.js'), console.log('How are doing'), console.log('Iam working in CSS-CORP'), console.log(app.a);
-})();
+(()=>{"use strict";console.log("How are You doing"),console.log("Iam working in CSS-CORP"),console.log("Greetings from RAJARAJAN.RAVIKUMAR")})();
