@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 // const dog = {
 //     name: "Scropy",
 //     makeSound: "Bow Wow",
@@ -20,6 +21,7 @@
 //     canFly: () => false
 // }
 
+// eslint-disable-next-line max-classes-per-file
 class Animal {
   // Special Method call only once when create instance
   constructor(name = '') {
@@ -28,6 +30,7 @@ class Animal {
   }
 
   set name(value) {
+    // eslint-disable-next-line no-underscore-dangle
     this._name = `${value[0].toUpperCase()}${value.slice(1)}`;
   }
 
@@ -71,6 +74,7 @@ class Dog extends Animal {
     super('Scorpy');
   }
 
+  // eslint-disable-next-line class-methods-use-this
   isObidiand() {
     return true;
   }

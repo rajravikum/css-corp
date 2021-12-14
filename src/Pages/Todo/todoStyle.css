@@ -3,12 +3,12 @@
   flex-direction: column;
   height: 100vh;
   background-color: #fafafa;
-  margin: 20px;
+  padding:2rem;
 }
 
-.container > h1 {
-  text-align: center;
-  margin: 1rem 0;
+.container > h2 {
+  display: flex;
+  justify-content: center;
 }
 
 .container > form {

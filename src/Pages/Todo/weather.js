@@ -12,7 +12,7 @@ export default class Weather extends Component {
       { id: 6, city: 'Ooty', temp: '18' },
       { id: 7, city: 'Kodaikanal', temp: '20' },
     ],
-    resultValue: '',
+    result: '',
   };
 
   inputRef = createRef();
@@ -23,24 +23,24 @@ export default class Weather extends Component {
     this.setState(({ cityDetails }) => {
       const locationExist = cityDetails.find((x) => x.city === inputLocation);
       return {
-        resultValue: locationExist ? `${locationExist.city} city's temp is ${locationExist.temp}` : 'City data does not exist in Records',
+        result: locationExist ? `The city temperature of ${locationExist.city}  is ${locationExist.temp} degree celcius` : 'City data does not exist in Records',
       };
     });
   };
 
   render() {
-    const { resultValue } = this.state;
+    const { result } = this.state;
     return (
       <div className="container">
         <form onSubmit={this.checkWeather}>
           <input type="text" ref={this.inputRef} />
-          <button type="submit">Know your wheather</button>
+          <button type="submit">Click to know weather</button>
         </form>
-        <div>
+        <h2>
           {
-            resultValue
+            result
           }
-        </div>
+        </h2>
       </div>
     );
   }
