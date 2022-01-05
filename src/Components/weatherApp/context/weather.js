@@ -2,7 +2,7 @@ import React, { createContext, createRef, PureComponent } from 'react';
 
 const WeatherContext = createContext();
 export const WeatherUser = WeatherContext.Consumer;
-export class WeatherProvider extends PureComponent {
+export class Weather extends PureComponent {
   baseURL = 'http://api.openweathermap.org/data/2.5/weather?appid=333458e05b25c5e69a7c22d64b7bc47f';
 
   state = {
@@ -10,9 +10,8 @@ export class WeatherProvider extends PureComponent {
     httpStatus: [],
     cities: [],
     units: [
-      { key: 'standard', title: 'Kelvin' },
-      { key: 'imperial', title: 'fahrenheit' },
       { key: 'metric', title: 'Celcius' },
+      { key: 'imperial', title: 'Fahrenheit' },
     ],
   };
 
@@ -46,40 +45,12 @@ export class WeatherProvider extends PureComponent {
     });
   };
 
-  loadReportData = async (currentCityId, currentUnit) => {
-    const cityId = currentCityId || 'Bengaluru,in';
-    const unitId = currentUnit || 'standard';
-    const urlParams = `&q=${cityId}&units=${unitId}`;
-    const { cities } = this.state;
-    const type = currentUnit ? 'CHANGE_UNIT' : 'LOAD_DATA';
+  changeUnit = async (event) => {
+    const type = 'CHANGE_UNIT';
+    const { report } = this.state;
     try {
-      this.setRequestHttpStatus({ type });
-      const url = `${this.baseURL}${urlParams}`;
-      const res = await fetch(url);
-      const json = await res.json();
-      let reportData;
-      if (!json.message) {
-        reportData = {
-          name: `${json.name}, ${json.sys?.country}`,
-          description: `${json.weather[0]?.main} | ${json.weather[0]?.description}`,
-          icon: `${json.weather[0]?.icon}`,
-          temp: json.main?.temp,
-          temp_max: json.main?.temp_max,
-          temp_min: json.main?.temp_min,
-          wind_speed: json.wind?.speed,
-          wind_direction: json.wind?.deg,
-          humidity: json.main?.humidity,
-          pressure: json.main?.pressure,
-          unit: unitId === 'imperial' ? 'ºF' : unitId === 'metric' ? 'ºC' : 'K',
-        };
-      }
-      this.setState({
-        report: json.message ? [] : reportData,
-        cities: currentCityId ? [] : cities,
-      });
-      document.getElementById('searchInput').value = currentCityId ? '' : document.getElementById('searchInput').value;
-      document.getElementById('unit-filter').value = currentUnit ? document.getElementById('unit-filter').value : 'standard';
-      this.setSuccessHttpStatus({ type });
+      const unitFilter = event.target.value;
+      this.loadReportData(report.name, unitFilter);
     } catch (error) {
       this.setFailedHttpStatus({ type, error });
     }
@@ -106,12 +77,40 @@ export class WeatherProvider extends PureComponent {
     }
   };
 
-  changeUnit = async (event) => {
-    const type = 'CHANGE_UNIT';
-    const { report } = this.state;
+  loadReportData = async (currentCityId, currentUnit) => {
+    const cityId = currentCityId || 'Bengaluru,in';
+    const unitId = currentUnit || 'metric';
+    const urlParams = `&q=${cityId}&units=${unitId}`;
+    const { cities } = this.state;
+    const type = currentUnit ? 'CHANGE_UNIT' : 'LOAD_DATA';
     try {
-      const unitFilter = event.target.value;
-      this.loadReportData(report.name, unitFilter);
+      this.setRequestHttpStatus({ type });
+      const url = `${this.baseURL}${urlParams}`;
+      const res = await fetch(url);
+      const json = await res.json();
+      let reportData;
+      if (!json.message) {
+        reportData = {
+          name: `${json.name}, ${json.sys?.country}`,
+          description: `${json.weather[0]?.main} | ${json.weather[0]?.description}`,
+          icon: `${json.weather[0]?.icon}`,
+          temp: json.main?.temp,
+          temp_max: json.main?.temp_max,
+          temp_min: json.main?.temp_min,
+          wind_speed: json.wind?.speed,
+          wind_direction: json.wind?.deg,
+          humidity: json.main?.humidity,
+          pressure: json.main?.pressure,
+          unit: unitId === 'imperial' ? 'ºF' : 'ºC',
+        };
+      }
+      this.setState({
+        report: json.message ? [] : reportData,
+        cities: currentCityId ? [] : cities,
+      });
+      document.getElementById('searchInput').value = currentCityId ? '' : document.getElementById('searchInput').value;
+      document.getElementById('unit-filter').value = currentUnit ? document.getElementById('unit-filter').value : 'metric';
+      this.setSuccessHttpStatus({ type });
     } catch (error) {
       this.setFailedHttpStatus({ type, error });
     }

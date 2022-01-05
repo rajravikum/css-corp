@@ -11,7 +11,7 @@ const SearchResult = () => {
             {cities.map(({ name, country, lat }) => (
               <button
                 type="button"
-                className="btn-search-result"
+                className="btn-result"
                 key={lat}
                 onClick={() => {
                   loadReportData(`${name},${country}`);

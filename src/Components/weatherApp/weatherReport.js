@@ -8,7 +8,7 @@ const WeatherReport = () => {
       {({
         report, loadDataStatus, loadReportData, changeUnitStatus,
       }) => (
-        <div className="border">
+        <div className="border rounded-xl">
           {loadDataStatus?.status ? (
             <div className="w-100">
               {!loadDataStatus?.error ? (
@@ -30,7 +30,7 @@ const WeatherReport = () => {
               <>
                 {report?.name ? (
                   <>
-                    <div className="relative mt-3 mb-2 p-5 flex flex-row flex-wrap justify-items-center">
+                    <div className="mt-3 mb-2 p-5 flex flex-row flex-wrap justify-items-center">
                       <div className="w-5/6">
                         <h1 className="text-3xl">{report.name}</h1>
                         {
@@ -73,10 +73,10 @@ const WeatherReport = () => {
                           : ''}
                       <div className="m-0 flex flex-row px-5 flex-wrap justify-items-center text-white text-center font-medium uppercase">
                         {report?.temp && (
-                        <div className="colum-3">
-                          <p className="colum-p">
+                        <div className="col-3">
+                          <p className="col-para">
                             Current Temparature
-                            <span className="number-bold">
+                            <span className="bool-bold">
                               {report.temp}
                               {report.unit}
                             </span>
@@ -84,10 +84,10 @@ const WeatherReport = () => {
                         </div>
                         )}
                         {report?.temp_max && (
-                        <div className="colum-3">
-                          <p className="colum-p">
+                        <div className="col-3">
+                          <p className="col-para">
                             Maximum Temparature
-                            <span className="number-bold">
+                            <span className="bool-bold">
                               {report.temp_max}
                               {report.unit}
                             </span>
@@ -96,10 +96,10 @@ const WeatherReport = () => {
                         )}
 
                         {report?.temp_min && (
-                        <div className="colum-3">
-                          <p className="colum-p">
+                        <div className="col-3">
+                          <p className="col-para">
                             Minimum Temparature
-                            <span className="number-bold">
+                            <span className="bool-bold">
                               {report.temp_min}
                               {report.unit}
                             </span>
@@ -107,47 +107,47 @@ const WeatherReport = () => {
                         </div>
                         )}
                         {report?.wind_speed && (
-                        <div className="colum-2-top">
-                          <p className="colum-p">
+                        <div className="col-2-top">
+                          <p className="col-para">
                             Wind Speed
-                            <span className="number-bold-padding">
+                            <span className="bool-bold-pad">
                               {report.wind_speed}
                               {' '}
-                              <em className="colum-2-unit">meter/sec</em>
+                              <em className="col-2-units">meter/sec</em>
                             </span>
                           </p>
                         </div>
                         )}
                         {report?.wind_direction && (
-                        <div className="colum-2-top">
-                          <p className="colum-p">
+                        <div className="col-2-top">
+                          <p className="col-para">
                             Wind direction
-                            <span className="number-bold-padding">
+                            <span className="bool-bold-pad">
                               {report.wind_direction}
                               {' '}
-                              <em className="colum-2-unit">Degrees</em>
+                              <em className="col-2-units">Degrees</em>
                             </span>
                           </p>
                         </div>
                         )}
                         {report?.pressure && (
-                        <div className="colum-2-bottom">
-                          <p className="colum-p">
+                        <div className="col-2-bot">
+                          <p className="col-para">
                             Pressure
-                            <span className="number-bold-padding">
+                            <span className="bool-bold-pad">
                               {report.pressure}
-                              <em className="colum-2-unit">hPa</em>
+                              <em className="col-2-units"> hPa</em>
                             </span>
                           </p>
                         </div>
                         )}
                         {report?.humidity && (
-                        <div className="colum-2-bottom">
-                          <p className="colum-p">
+                        <div className="col-2-bot">
+                          <p className="col-para">
                             Humidity
-                            <span className="number-bold-padding">
+                            <span className="bool-bold-pad">
                               {report.humidity}
-                              <em className="colum-2-unit">%</em>
+                              <em className="col-2-units">%</em>
                             </span>
                           </p>
                         </div>

@@ -6,10 +6,10 @@ const setUnit = () => {
   return (
     <WeatherUser>
       {({ changeUnit, units }) => (
-        <div className="w-1/3 bg-[#F1F1F1] rounded p-2 uppercase text-sm border">
+        <div className="w-1/3 bg-[#F1F1F1] p-4 uppercase text-sm rounded-xl">
           <h3>Units</h3>
           <div className="flex items-center">
-            <select className="mt-4 pb-1 w-full bg-transparent font-bold outline-none capitalize" id="unit-filter" onChange={(event) => (changeUnit(event))}>
+            <select className="w-full bg-transparent font-bold outline-none border-none" id="unit-filter" onChange={(event) => (changeUnit(event))}>
               {units.map(({ key, title }) => (
                 <option value={key} key={key}>{title}</option>
               ))}
