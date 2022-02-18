@@ -1,10 +1,32 @@
 {
+  "users": [
+    {
+      "email": "yagnesh.modh@gmail.com",
+      "password": "$2a$10$AuwTn8l8G8v5tlGSStQwaeIGiTWJB8kgGIPhdtVirRjV7ef6friZ2",
+      "name": "Yagnesh Modh",
+      "gender": "male",
+      "age": 30,
+      "id": 1
+    }
+  ],
   "todo-list": [
     {
-      "text": "sdfg",
-      "isDone": false,
-      "timeStamp": "12-17-21 15:29",
-      "id": 12
+      "text": "hello4",
+      "isDone": true,
+      "timeStamp": "01-05-22 10:41",
+      "id": 5
+    },
+    {
+      "text": "hello2",
+      "isDone": true,
+      "timeStamp": "01-05-22 10:51",
+      "id": 7
+    },
+    {
+      "text": "hello3",
+      "isDone": true,
+      "timeStamp": "01-05-22 10:51",
+      "id": 8
     }
   ]
 }
